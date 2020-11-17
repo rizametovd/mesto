@@ -2,14 +2,9 @@
 @import url('../vendor/fonts.css');
 @import url('../blocks/page/page.css');
 
-
-
-
-
-
-
-
-
+/*Header*/
+@import url('../blocks/header/header.css');
+@import url('../blocks/header/__logo/header__logo.css');
 
 /*Profile*/
 @import url('../blocks/profile/profile.css');
@@ -19,3 +14,4 @@
 @import url('../blocks/profile/__about/profile__about.css');
 @import url('../blocks/profile/__edit-button/profile__edit-button.css');
 @import url('../blocks/profile/__add-button/profile__add-button.css');
+=======
