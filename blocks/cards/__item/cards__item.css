@@ -1,0 +1,9 @@
+.cards__item {
+    width: 282px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.cards__item:last-of-type {
+    padding-bottom: 0;
+}
