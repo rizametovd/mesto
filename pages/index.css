@@ -12,10 +12,10 @@
 
 
 /*Profile*/
-@import url('../profile/profile.css');
-@import url('../profile/__avatar/profile__avatar.css');
-@import url('../profile/__info/profile__info.css');
-@import url('../profile/__name/profile__name.css');
-@import url('../profile/__about/profile__about.css');
-@import url('../profile/__edit-button/profile__edit-button.css');
-@import url('../profile/__add-button/profile__add-button.css');
+@import url('../blocks/profile/profile.css');
+@import url('../blocks/profile/__avatar/profile__avatar.css');
+@import url('../blocks/profile/__info/profile__info.css');
+@import url('../blocks/profile/__name/profile__name.css');
+@import url('../blocks/profile/__about/profile__about.css');
+@import url('../blocks/profile/__edit-button/profile__edit-button.css');
+@import url('../blocks/profile/__add-button/profile__add-button.css');
