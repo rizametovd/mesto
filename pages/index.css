@@ -15,9 +15,13 @@
 @import url('../blocks/profile/__edit-button/profile__edit-button.css');
 @import url('../blocks/profile/__add-button/profile__add-button.css');
 
-/**Cards*/
+/*Cards*/
 @import url('../blocks/cards/cards.css');
 @import url('../blocks/cards/__list/cards__list.css');
 @import url('../blocks/cards/__item/cards__item.css');
 @import url('../blocks/cards/__item-photo/cards__item-photo.css');
 @import url('../blocks/cards/__item-title/cards__item-title.css');
+
+/*Footer*/
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/footer/__copyright/footer__copyright.css');
