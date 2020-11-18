@@ -7,4 +7,11 @@
     background-position: center;
     background-color: #000;
     align-self: center;
+    cursor: pointer;
+    outline-width: 0;
+}
+
+.profile__edit-button:hover {
+    transition: opacity .2s linear;
+    opacity: .6;
 }
