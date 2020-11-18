@@ -1,0 +1,8 @@
+.header__logo-link {
+    display: inline-block;
+}
+
+.header__logo-link:hover {
+    transition: opacity .2s linear;
+    opacity: 0;
+}

@@ -1,10 +1,12 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts.css');
 @import url('../blocks/page/page.css');
+@import url('../blocks/button/button.css');
 
 /*Header*/
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__logo/header__logo.css');
+@import url('../blocks/header/__logo-link/header__logo-link.css');
 
 /*Profile*/
 @import url('../blocks/profile/profile.css');
@@ -38,3 +40,14 @@
 /*Footer*/
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
+
+
+
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/_opened/popup_opened.css');
+@import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/__close-button/popup__close-button.css');
+
+@import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__field/popup__field.css');
+@import url('../blocks/popup/__submit-button/popup__submit-button.css');
