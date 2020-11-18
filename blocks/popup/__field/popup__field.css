@@ -1,0 +1,32 @@
+.popup__field {
+    width: 238px;
+    height: 27px;
+    margin-bottom: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    outline: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.popup__field:last-of-type {
+    margin-bottom: 45px;
+}
+
+@media screen and (min-width: 768px) {
+    .popup__field {
+        width: 358px;
+    }
+
+    .popup__field:last-of-type {
+        margin-bottom: 48px;
+    }
+}
