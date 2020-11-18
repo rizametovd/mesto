@@ -16,3 +16,9 @@
     transition: opacity .2s linear;
     opacity: .6;
 }
+
+@media screen and (min-width: 768px) {
+    .profile__add-button {
+        width: 150px;
+    }
+}

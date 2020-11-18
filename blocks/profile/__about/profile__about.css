@@ -5,3 +5,17 @@
     text-align: center;
     margin: 7px 0 33px;
 }
+
+@media screen and (min-width: 768px) {
+    .profile__about {
+        align-self: start;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__about {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+}
