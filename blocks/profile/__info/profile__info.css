@@ -1,0 +1,11 @@
+.profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__info {
+        justify-content: flex-start;
+    }
+}

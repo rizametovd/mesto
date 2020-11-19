@@ -1,0 +1,11 @@
+.cards__item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 282px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.cards__item:last-of-type {
+    padding-bottom: 0;
+}
