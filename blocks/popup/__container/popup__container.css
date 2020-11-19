@@ -1,11 +1,6 @@
 .popup__container {
     width: 282px;
     background-color: white;
-    /*display: none;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;*/
     border-radius: 10px;
     padding: 25px 22px;
     box-sizing: border-box;

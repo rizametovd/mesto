@@ -5,7 +5,7 @@
     background-image: url('../../../images/edit-icon.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #000;
+    background-color: transparent;
     align-self: center;
     cursor: pointer;
     outline-width: 0;

@@ -2,15 +2,3 @@
     display: flex;
     flex-direction: column;
 }
-
-@media screen and (min-width: 768px) {
-    .profile__container {
-        margin: 0 58px 0 0;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .profile__container {
-        margin-right: 244px;
-    }
-}

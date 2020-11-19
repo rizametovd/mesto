@@ -2,52 +2,33 @@
 @import url('../vendor/fonts.css');
 @import url('../blocks/page/page.css');
 @import url('../blocks/button/button.css');
-
-/*Header*/
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__logo/header__logo.css');
 @import url('../blocks/header/__logo-link/header__logo-link.css');
-
-/*Profile*/
 @import url('../blocks/profile/profile.css');
-
+@import url('../blocks/profile/__wrapper/profile__wrapper.css');
 @import url('../blocks/profile/__container/profile__container.css');
-
 @import url('../blocks/profile/__avatar/profile__avatar.css');
 @import url('../blocks/profile/__info/profile__info.css');
 @import url('../blocks/profile/__name/profile__name.css');
 @import url('../blocks/profile/__about/profile__about.css');
 @import url('../blocks/profile/__edit-button/profile__edit-button.css');
 @import url('../blocks/profile/__add-button/profile__add-button.css');
-
-/*Cards*/
 @import url('../blocks/cards/cards.css');
 @import url('../blocks/cards/__list/cards__list.css');
 @import url('../blocks/cards/__item/cards__item.css');
-
-
 @import url('../blocks/cards/__item-photo-link/cards__item-photo-link.css');
 @import url('../blocks/cards/__item-photo/cards__item-photo.css');
 @import url('../blocks/cards/__item-title/cards__item-title.css');
-
-
 @import url('../blocks/cards/__item-container/cards__item-container.css');
 @import url('../blocks/cards/__item-like-icon-link/cards__item-like-icon-link.css');
 @import url('../blocks/cards/__item-like-icon/cards__item-like-icon.css');
-
-
-
-/*Footer*/
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
-
-
-
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__container/popup__container.css');
 @import url('../blocks/popup/__close-button/popup__close-button.css');
-
 @import url('../blocks/popup/__title/popup__title.css');
 @import url('../blocks/popup/__field/popup__field.css');
 @import url('../blocks/popup/__submit-button/popup__submit-button.css');

@@ -10,7 +10,7 @@
         width: 581px;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
         margin: 0 auto;
     }
 }
