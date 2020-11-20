@@ -1,0 +1,13 @@
+.cards__item-like-icon-button {
+    min-width: 21px;
+    height: 19px;
+    background-image: url('../../../images/like-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    outline-width: 0;
+}
