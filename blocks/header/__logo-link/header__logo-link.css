@@ -4,5 +4,5 @@
 
 .header__logo-link:hover {
     transition: opacity .2s linear;
-    opacity: 0;
+    opacity: .8;
 }
