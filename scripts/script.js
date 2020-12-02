@@ -1,20 +1,21 @@
 const editButton = document.querySelector('.profile__edit-button');
 const сlosePopupButton = document.querySelector('.popup__close-button');
 const popup = document.querySelector('.popup');
-const popupField = document.querySelectorAll('.popup__field');
+const popupNameField = document.querySelector('[name="username"]');
+const popupAboutField = document.querySelector('[name="about"]');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 const formElement = document.querySelector('.popup__container');
 
 
-//Открыть попап
+//Функция: открыть попап
 function openPopup() {
     popup.classList.add('popup_opened');
 }
 editButton.addEventListener('click', openPopup);
 
 
-// Закрыть попап
+//Функция: закрыть попап
 function closePopup() {
     popup.classList.remove('popup_opened');
 }
@@ -22,17 +23,17 @@ function closePopup() {
 
 
 // Заполнить поля попапа из HTML
-popupField[0].value = profileName.textContent;
-popupField[1].value = profileAbout.textContent;
+popupNameField.value = profileName.textContent;
+popupAboutField.value = profileAbout.textContent;
 
 
 //Кнопка Сохранить
 function formSubmitHandler(evt) {
     evt.preventDefault();
 
-    let nameInput = popupField[0].value;
+    let nameInput = popupNameField.value;
     profileName.textContent = nameInput;
-    let jobInput = popupField[1].value;
+    let jobInput = popupAboutField.value;
     profileAbout.textContent = jobInput;
 
     closePopup();
