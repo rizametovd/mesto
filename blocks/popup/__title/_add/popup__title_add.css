@@ -1,0 +1,5 @@
+@media screen and (max-width: 320px) {
+    .popup__title_add {
+        padding-bottom: 32px;
+    }
+}

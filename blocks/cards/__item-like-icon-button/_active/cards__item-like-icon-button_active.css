@@ -1,8 +1,8 @@
-.cards__item-like-icon-button {
-    width: 21px;
-    height: 19px;
+.cards__item-like-icon-button_active {
+    width: 20px;
+    height: 18px;
     flex-shrink: 0;
-    background-image:url('../../../images/like-icon.svg');
+    background-image:url('../../../../images/like-icon-active.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

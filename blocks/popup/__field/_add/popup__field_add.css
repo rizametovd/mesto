@@ -1,0 +1,13 @@
+@media screen and (max-width: 320px) {
+    .popup__field_add {
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 9px;
+        display: block;
+    }
+
+    .popup__field_add:last-of-type {
+        margin-bottom: 36px;
+    }
+}

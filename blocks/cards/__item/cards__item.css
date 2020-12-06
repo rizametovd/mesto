@@ -4,6 +4,7 @@
     width: 282px;
     padding-bottom: 20px;
     margin: 0 auto;
+    position: relative;
 }
 
 .cards__item:last-of-type {
@@ -13,5 +14,19 @@
 @media screen and (min-width: 768px) {
     .cards__item {
         margin: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cards__item {
+        margin-right: 17px;
+    }
+
+    .cards__item:nth-of-type(3) {
+        margin-right: 0;
+    }
+
+    .cards__item:last-of-type {
+        margin-right: 0;
     }
 }

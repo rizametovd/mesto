@@ -19,62 +19,15 @@
             <div class="profile__container">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button button" type="button"></button>
+                    <button class="profile__edit-button button" aria-label="Изменить данные пользователя"
+                        type="button"></button>
                 </div>
                 <p class="profile__about">Исследователь океана</p>
             </div>
-            <button class="profile__add-button button" type="button"></button>
+            <button class="profile__add-button button" type="button" aria-label="Загрузить картинку"></button>
         </section>
         <section class="cards">
             <ul class="cards__list">
-                <li class="cards__item">
-                    <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                            src="./images/kirill-pershin-1088404.png" alt="Фото Карачаево-Черкесии"></a>
-                    <div class="cards__item-container">
-                        <h2 class="cards__item-title">Карачаево-Черкесия</h2>
-                        <button class="cards__item-like-icon-button button" type="button"></button>
-                    </div>
-                </li>
-                <li class="cards__item">
-                    <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                            src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото горы Эльбрус"></a>
-                    <div class="cards__item-container">
-                        <h2 class="cards__item-title">Гора Эльбрус</h2>
-                        <button class="cards__item-like-icon-button button" type="button"></button>
-                    </div>
-                </li>
-                <li class="cards__item">
-                    <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                            src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото Домбай"></a>
-                    <div class="cards__item-container">
-                        <h2 class="cards__item-title">Домбай</h2>
-                        <button class="cards__item-like-icon-button button" type="button"></button>
-                    </div>
-                </li>
-                <li class="cards__item">
-                    <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                            src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото горы Эльбрус"></a>
-                    <div class="cards__item-container">
-                        <h2 class="cards__item-title">Гора Эльбрус</h2>
-                        <button class="cards__item-like-icon-button button" type="button"></button>
-                    </div>
-                </li>
-                <li class="cards__item">
-                    <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                            src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото Домбай"></a>
-                    <div class="cards__item-container">
-                        <h2 class="cards__item-title">Домбай</h2>
-                        <button class="cards__item-like-icon-button button" type="button"></button>
-                    </div>
-                </li>
-                <li class="cards__item">
-                    <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                            src="./images/kirill-pershin-1088404.png" alt="Фото Карачаево-Черкесии"></a>
-                    <div class="cards__item-container">
-                        <h2 class="cards__item-title">Карачаево-Черкесия</h2>
-                        <button class="cards__item-like-icon-button button" type="button"></button>
-                    </div>
-                </li>
             </ul>
         </section>
     </main>
@@ -82,14 +35,48 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <div class="popup">
-        <form class="popup__container" name="editpopup">
-            <button class="popup__close-button button" type="button"></button>
+        <form class="popup__container" name="editform">
+            <button class="popup__close-button button popup__close-button_edit" aria-label="Закрыть попап"
+                type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <input type="text" name="username" value="" placeholder="" class="popup__field">
             <input type="text" name="about" value="" placeholder="" class="popup__field">
-            <button class="popup__submit-button button" type="submit">Сохранить</button>
+            <button class="popup__submit-button edit-submit button" type="submit"
+                aria-label="Сохранить изменения">Сохранить</button>
         </form>
     </div>
+    <div class="popup">
+        <form class="popup__container popup__container_add" name="addform">
+            <button class="popup__close-button button popup__close-button_add" aria-label="Закрыть попап"
+                type="button"></button>
+            <h2 class="popup__title popup__title_add">Новое место</h2>
+            <input type="text" name="imagename" value="" placeholder="Название" class="popup__field popup__field_add">
+            <input type="text" name="imagelink" value="" placeholder="Ссылка на картинку"
+                class="popup__field popup__field_add">
+            <button class="popup__submit-button add-submit button" type="submit"
+                aria-label="Создать карточку">Создать</button>
+        </form>
+    </div>
+    <div class="popup">
+        <div class="popup__container-image">
+            <img class="popup__image" src="" alt="">
+            <h3 class="popup__image-caption"></h3>
+            <button class="popup__close-button button popup__close-button_img" type="button"
+                aria-label="Закрыть попап"></button>
+        </div>
+
+    </div>
+    <template class="card__template">
+        <li class="cards__item">
+            <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo" src="" alt=""></a>
+            <button class="cards__item-delete-button button" type="button" aria-label="Удалить карточку"></button>
+            <div class="cards__item-container">
+                <h2 class="cards__item-title"></h2>
+                <button class="cards__item-like-icon-button button" type="button"
+                    aria-label="Лайкнуть карточку"></button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/script.js"></script>
 </body>
 

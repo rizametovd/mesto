@@ -20,6 +20,7 @@
 @media screen and (min-width: 1024px) {
     .cards__list {
         width: 880px;
+        justify-content: flex-start;
         margin: 0 auto;
     }
 }
