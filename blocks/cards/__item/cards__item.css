@@ -22,7 +22,7 @@
         margin-right: 17px;
     }
 
-    .cards__item:nth-of-type(3) {
+    .cards__item:nth-of-type(3n) {
         margin-right: 0;
     }
 

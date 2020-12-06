@@ -34,7 +34,7 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup__edit">
         <form class="popup__container" name="editform">
             <button class="popup__close-button button popup__close-button_edit" aria-label="Закрыть попап"
                 type="button"></button>
@@ -45,19 +45,19 @@
                 aria-label="Сохранить изменения">Сохранить</button>
         </form>
     </div>
-    <div class="popup">
+    <div class="popup popup__add">
         <form class="popup__container popup__container_add" name="addform">
             <button class="popup__close-button button popup__close-button_add" aria-label="Закрыть попап"
                 type="button"></button>
             <h2 class="popup__title popup__title_add">Новое место</h2>
-            <input type="text" name="imagename" value="" placeholder="Название" class="popup__field popup__field_add">
-            <input type="text" name="imagelink" value="" placeholder="Ссылка на картинку"
-                class="popup__field popup__field_add">
+            <input type="text" name="imagename" value="" placeholder="Название" class="popup__field popup__field_add popup__image-name">
+            <input type="url" required name="imagelink" value="" placeholder="Ссылка на картинку"
+                class="popup__field popup__field_add popup__image-link">
             <button class="popup__submit-button add-submit button" type="submit"
                 aria-label="Создать карточку">Создать</button>
         </form>
     </div>
-    <div class="popup">
+    <div class="popup popup__img">
         <div class="popup__container-image">
             <img class="popup__image" src="./images/404.jpg" alt="Фото">
             <h3 class="popup__image-caption"></h3>
@@ -68,8 +68,7 @@
     </div>
     <template class="card__template">
         <li class="cards__item">
-            <a class="cards__item-photo-link" href="#" target="_self"><img class="cards__item-photo"
-                    src="./images/404.jpg" alt="Фото"></a>
+            <img class="cards__item-photo" src="./images/404.jpg" alt="Фото">
             <button class="cards__item-delete-button button" type="button" aria-label="Удалить карточку"></button>
             <div class="cards__item-container">
                 <h2 class="cards__item-title"></h2>
