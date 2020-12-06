@@ -12,9 +12,9 @@ const closeEditButton = document.querySelector('.popup__close-button_edit');
 const closeImagePopup = document.querySelector('.popup__close-button_img');
 const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('.card__template');
-const popupAdd = document.querySelector('.popup__add');
-const popupImg = document.querySelector('.popup__img');
-const popupEdit = document.querySelector('.popup__edit');
+const popupAdd = document.querySelector('.popup-add');
+const popupImg = document.querySelector('.popup-img');
+const popupEdit = document.querySelector('.popup-edit');
 
 
 // Функция Открыть попап
