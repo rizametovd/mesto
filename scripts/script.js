@@ -15,6 +15,7 @@ const cardTemplate = document.querySelector('.card__template');
 const popupAdd = document.querySelector('.popup-add');
 const popupImg = document.querySelector('.popup-img');
 const popupEdit = document.querySelector('.popup-edit');
+
 const initialCards = [
     {
         name: 'Архыз',
@@ -113,6 +114,8 @@ function openImagePopup(item) {
     popupImage.alt = 'Фото' + ' ' + item.name;
     popupImageCaption.textContent = item.name;
     openPopup(popupImg);
+    document.addEventListener('keydown', closePopupOnEsc);
+    closePopupOnOverlay();
 }
 
 // Функция лайков
@@ -131,19 +134,47 @@ function renderCards() {
     cardsList.append(...cards);
 }
 
+// Функция закрыть попап Escape
+function closePopupOnEsc(e) {
+    const activePopup = document.querySelector('.popup_opened');
+    if (e.key === 'Escape' && activePopup) {
+        closePopup(activePopup);
+        document.removeEventListener('keydown', closePopupOnEsc);
+    }
+}
+
+// Функция закрыть попап на оверлее
+function closePopupOnOverlay() {
+    const activePopup = document.querySelector('.popup_opened');
+    if (activePopup) {
+        activePopup.addEventListener('click', function (e) {
+            if (e.target === activePopup) {
+                closePopup(e.currentTarget);
+            }
+        });
+    }
+}
+
 
 // Слушатели
 
 // Слушатель на кнопке Добавить
 addButton.addEventListener('click', function (e) {
     openPopup(popupAdd);
+
+    document.addEventListener('keydown', closePopupOnEsc);
+    const submitButton = popupAdd.querySelector(validationConfig.submitButtonSelector);
+    setButtonState(submitButton, false, validationConfig);
+    closePopupOnOverlay()
 })
 
 // Слушатель на кнопке Редактировать
 editButton.addEventListener('click', function (e) {
     popupNameField.value = profileName.textContent;
     popupAboutField.value = profileAbout.textContent;
+    document.addEventListener('keydown', closePopupOnEsc);
     openPopup(popupEdit);
+    closePopupOnOverlay();
 })
 
 // Слушатель на кнопке закрыть попап

@@ -35,25 +35,43 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <div class="popup popup-edit">
-        <form class="popup__container" name="editform">
+        <form class="popup__container popup__form" name="editform" novalidate>
             <button class="popup__close-button button popup__close-button_edit" aria-label="Закрыть попап"
                 type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" name="username" value="" placeholder="" class="popup__field">
-            <input type="text" name="about" value="" placeholder="" class="popup__field">
-            <button class="popup__submit-button button" type="submit"
+            <label class="popup__label">
+                <input id="name__input" type="text" name="username" value="" placeholder="Имя"
+                    class="popup__field popup__input" minlength="2" maxlength="40" required>
+                <span class="name__input-error"></span>
+            </label>
+            <label class="popup__label">
+                <input id="about__input" type="text" name="about" value="" placeholder="О себе"
+                    class="popup__field popup__input" minlength="2" maxlength="200" required>
+                <span class="about__input-error"></span>
+            </label>
+            <button class="popup__submit-button button popup__button" type="submit"
                 aria-label="Сохранить изменения">Сохранить</button>
         </form>
     </div>
     <div class="popup popup-add">
-        <form class="popup__container" name="addform">
+        <form class="popup__container popup__form" name="addform" novalidate>
             <button class="popup__close-button button popup__close-button_add" aria-label="Закрыть попап"
                 type="button"></button>
             <h2 class="popup__title popup__title_add">Новое место</h2>
-            <input type="text" name="imagename" value="" placeholder="Название" class="popup__field popup__field_add popup__image-name">
-            <input type="url" required name="imagelink" value="" placeholder="Ссылка на картинку"
-                class="popup__field popup__field_add popup__image-link">
-            <button class="popup__submit-button button" type="submit"
+
+            <label class="popup__label">
+                <input id="imgname__input" type="text" name="imagename" value="" placeholder="Название"
+                    class="popup__field popup__field_add popup__image-name popup__input" minlength="2" maxlength="30"
+                    required>
+                <span class="imgname__input-error"></span>
+            </label>
+            <label class="popup__label">
+                <input id="imglink__input" type="url" required name="imagelink" value=""
+                    placeholder="Ссылка на картинку"
+                    class="popup__field popup__field_add popup__image-link popup__input" required>
+                <span class="imglink__input-error"></span>
+            </label>
+            <button class="popup__submit-button button popup__button" type="submit"
                 aria-label="Создать карточку">Создать</button>
         </form>
     </div>
@@ -64,7 +82,6 @@
             <button class="popup__close-button button popup__close-button_img" type="button"
                 aria-label="Закрыть попап"></button>
         </div>
-
     </div>
     <template class="card__template">
         <li class="cards__item">
@@ -77,6 +94,7 @@
             </div>
         </li>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 
