@@ -52,6 +52,8 @@ function openPopup(popup) {
 // Функция закрыть попап
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    clearSpanError()
+    clearTypeError()
 }
 
 // Функция добавления карточки в форме Добавить
@@ -155,6 +157,29 @@ function closePopupOnOverlay() {
     }
 }
 
+// Функция которая скрывает ошибку в спане
+function clearSpanError() {
+    const errorSpan = document.querySelectorAll('.popup__error_visible');
+    errorSpan.forEach(span => {
+        if (span) {
+            span.textContent = '';
+
+            const submitButton = editForm.querySelector('.popup__button');
+            setButtonState(submitButton, true, validationConfig);
+        }
+    });
+}
+
+// Функция, которая убирает красное поддчеркивание
+function clearTypeError() {
+    const errorType = document.querySelectorAll('.popup__input_type_error');
+    errorType.forEach(type => {
+        if (type) {
+            type.classList.remove('popup__input_type_error');
+        }
+    });
+}
+
 
 // Слушатели
 
@@ -166,6 +191,7 @@ addButton.addEventListener('click', function (e) {
     const submitButton = popupAdd.querySelector(validationConfig.submitButtonSelector);
     setButtonState(submitButton, false, validationConfig);
     closePopupOnOverlay()
+    addForm.reset();
 })
 
 // Слушатель на кнопке Редактировать

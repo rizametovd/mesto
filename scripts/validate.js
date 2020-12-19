@@ -1,4 +1,3 @@
-
 // Функция: показать ошибки
 function showError(form, input, config) {
     const error = form.querySelector(`.${input.id}-error`);
