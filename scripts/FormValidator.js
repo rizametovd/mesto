@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
     constructor(config, form) {
         this._formSelector = form;
         this._inputSelector = config.inputSelector;
@@ -20,6 +20,24 @@ export class FormValidator {
         error.textContent = '';
         input.classList.remove(this._inputErrorClass);
         error.classList.remove(this._errorClass);
+    }
+
+    clearSpanError() {
+        const errorSpan = this._formSelector.querySelectorAll('.popup__error_visible');
+        errorSpan.forEach(span => {
+            if (span) {
+                span.textContent = '';
+            }
+        });
+    }
+
+    clearTypeError() {
+        const errorType = this._formSelector.querySelectorAll('.popup__input_type_error');
+        errorType.forEach(type => {
+            if (type) {
+                type.classList.remove(this._inputErrorClass);
+            }
+        });
     }
 
     _checkInputValidity(form, input) {
@@ -45,7 +63,7 @@ export class FormValidator {
     _setEventListener(form) {
         const inputList = form.querySelectorAll(this._inputSelector);
         const submitButton = form.querySelector(this._submitButtonSelector);
-        
+
         inputList.forEach(input => {
             input.addEventListener('input', (evt) => {
                 this._checkInputValidity(form, input);
@@ -54,12 +72,12 @@ export class FormValidator {
         });
     }
 
-  
+
     enableValidation() {
         this._setEventListener(this._formSelector);
         this._formSelector.addEventListener('submit', (evt) => {
             evt.preventDefault();
-        })   
+        })
     }
 
 }

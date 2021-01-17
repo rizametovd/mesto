@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
     constructor(data, cardSelector, openImagePopup) {
         this._name = data.name;
         this._link = data.link;
@@ -19,7 +19,8 @@ export class Card {
     }
 
     _removeCard() {
-        this._card.closest('.cards__item').remove();
+        this._card.remove();
+        this._card= null;
     }
 
     generateCard() {

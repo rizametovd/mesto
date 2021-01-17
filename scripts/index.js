@@ -1,6 +1,6 @@
-import { Card } from './Card.js'
-import { FormValidator } from './FormValidator.js'
-import { initialCards } from './initialcards.js'
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+import { initialCards } from './initialСards.js';
 
 
 const editButton = document.querySelector('.profile__edit-button');
@@ -18,25 +18,32 @@ const cardsList = document.querySelector('.cards__list');
 const popupAdd = document.querySelector('.popup-add');
 const popupImg = document.querySelector('.popup-img');
 const popupEdit = document.querySelector('.popup-edit');
+const popupImage = document.querySelector('.popup__image');
+const popupImageCaption = document.querySelector('.popup__image-caption');
 
 
 // Функция Открыть попап
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupOnEsc);
-    closePopupOnOverlay();
+    popup.addEventListener('click', closePopupOnOverlay);
 }
 
 // Функция закрыть попап
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupOnEsc);
-    clearSpanError();
-    clearTypeError();
+    popup.removeEventListener('click', closePopupOnOverlay);
+    editFormValidator.clearSpanError();
+    editFormValidator.clearTypeError();
+    addFormValidator.clearSpanError();
+    addFormValidator.clearTypeError();
+    const submitButton = editForm.querySelector('.popup__button');
+    editFormValidator.setButtonState(submitButton, true);
 }
 
 // Функция добавления карточки в форме Добавить
-function addNewCard(evt) {
+function addNewCard() {
     const imageName = document.querySelector('.popup__image-name');
     const imageLink = document.querySelector('.popup__image-link');
 
@@ -45,14 +52,21 @@ function addNewCard(evt) {
         link: imageLink.value
     }
 
-    const newCard = new Card(item, '.card__template', openImagePopup);
-    addCard(cardsList, newCard.generateCard());
+    addCard(cardsList, createCard(item));
     closePopup(popupAdd);
     addForm.reset();
 }
 
+
+// Функция создания карточки
+function createCard(item) {
+    const cardInstance = new Card(item, '.card__template', openImagePopup);
+    const card = cardInstance.generateCard();
+    return card;
+}
+
 // Функция, которая присвает профиль в инпуты
-function addBio(evt) {
+function addBio() {
     profileName.textContent = popupNameField.value;
     profileAbout.textContent = popupAboutField.value;
 
@@ -67,8 +81,6 @@ function addCard(location, cardElement) {
 
 // Открытие попапа с картинкой
 function openImagePopup(item) {
-    const popupImage = document.querySelector('.popup__image');
-    const popupImageCaption = document.querySelector('.popup__image-caption');
     popupImage.src = item.link;
     popupImage.alt = `Фото ${item.name}`;
     popupImageCaption.textContent = item.name;
@@ -78,9 +90,7 @@ function openImagePopup(item) {
 
 function renderCards() {
     initialCards.map((item) => {
-        const card = new Card(item, '.card__template', openImagePopup);
-        const cards = card.generateCard();
-        cardsList.append(cards);
+        cardsList.append(createCard(item));
     })
 }
 
@@ -92,39 +102,13 @@ function closePopupOnEsc(e) {
     }
 }
 
-// Функция закрыть попап на оверлее
-function closePopupOnOverlay() {
+
+
+function closePopupOnOverlay(e) {
     const activePopup = document.querySelector('.popup_opened');
-    if (activePopup) {
-        activePopup.addEventListener('click', function (e) {
-            if (e.target === activePopup) {
-                closePopup(e.currentTarget);
-            }
-        });
+    if (e.target === activePopup) {
+        closePopup(e.currentTarget);
     }
-}
-
-// Функция которая скрывает ошибку в спане
-function clearSpanError() {
-    const errorSpan = document.querySelectorAll('.popup__error_visible');
-    errorSpan.forEach(span => {
-        if (span) {
-            span.textContent = '';
-
-            const submitButton = editForm.querySelector('.popup__button');
-            editFormValidator.setButtonState(submitButton, true);
-        }
-    });
-}
-
-// Функция, которая убирает красное поддчеркивание
-function clearTypeError() {
-    const errorType = document.querySelectorAll('.popup__input_type_error');
-    errorType.forEach(type => {
-        if (type) {
-            type.classList.remove('popup__input_type_error');
-        }
-    });
 }
 
 
@@ -148,17 +132,17 @@ editButton.addEventListener('click', function (e) {
 })
 
 // Слушатель на кнопке закрыть попап
-closeAddButton.addEventListener('click', function (e) {
+closeAddButton.addEventListener('click', function () {
     closePopup(popupAdd);
 });
 
 // Слушатель на кнопке закрыть попап
-closeEditButton.addEventListener('click', function (e) {
+closeEditButton.addEventListener('click', function () {
     closePopup(popupEdit);
 });
 
 // Слушатель на кнопке закрыть попап
-closeImagePopup.addEventListener('click', function (e) {
+closeImagePopup.addEventListener('click', function () {
     closePopup(popupImg);
 })
 
@@ -186,13 +170,3 @@ addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
-
-
-
-
-
-
-
-
-
-
