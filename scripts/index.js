@@ -153,7 +153,7 @@ addForm.addEventListener('submit', addNewCard);
 editForm.addEventListener('submit', addBio);
 
 // Вызов функции рендинга 6 карточке
-renderCards()
+renderCards();
 
 const validationConfig = {
     formSelector: '.popup__form',
