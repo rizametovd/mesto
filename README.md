@@ -1,10 +1,14 @@
-# Проект 7: Место
+# Проект 8: Место
 
 ## Описание проекта
 1. Работа выполнена в соответствии с техническим заданием. Сайт адаптируется под разные разрешения экрана. Код написан на HTML, CSS и JavaScript.
 2. Структура проекта создана в соответствии с методологией БЭМ Nested.
 3. Ссылка на gh-pages: https://rizametovd.github.io/mesto/index.html
 
+
+## Changelog Спринт 8
+1. Добавлены классы: Popup, PopupWithForm, PopupWithImage, Section, UserInfo.
+2. Созданы папки для констант, модулей.
 
 ## Changelog Спринт 7
 1. Добавлено два класса: Card и FormValidator.
