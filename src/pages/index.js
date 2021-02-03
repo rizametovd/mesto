@@ -32,9 +32,9 @@ editPopup.setEventListeners();
 
 
 const addPopup = new PopupWithForm('.popup-add', (item) => {
-    const cardInstance = new Card(item, '.card__template', (item) => { imagePopup.open(item) });
-    const card = cardInstance.generateCard();
-    cardsList.addOneItem(card);
+    cardsList.addOneItem(createCard(item, '.card__template', (item) => {
+        imagePopup.open(item);
+    }));
 });
 addPopup.setEventListeners();
 
@@ -42,15 +42,20 @@ addPopup.setEventListeners();
 const cardsList = new Section({
     items: initialCards,
     renderer: (item) => {
-        const cardInstance = new Card(item, '.card__template', (item) => { imagePopup.open(item) });
-        const card = cardInstance.generateCard();
-
-        cardsList.addItem(card);
+        cardsList.addItem(createCard(item, '.card__template', (item) => {
+            imagePopup.open(item);
+        }));
     },
 },
     cardList
 );
 cardsList.renderItems();
+
+function createCard(item, cardSelector, openImagePopup) {
+    const cardInstance = new Card(item, cardSelector, openImagePopup);
+    const card = cardInstance.generateCard();
+    return card;
+}
 
 
 addButton.addEventListener('click', () => {
@@ -62,8 +67,9 @@ addButton.addEventListener('click', () => {
 
 
 editButton.addEventListener('click', () => {
-    popupNameField.value = userInfo.getUserInfo().name;
-    popupAboutField.value = userInfo.getUserInfo().about;
+    const personInfo = userInfo.getUserInfo();
+    popupNameField.value = personInfo.name;
+    popupAboutField.value = personInfo.about;
     editPopup.open();
     editFormValidator.clearSpanError();
     editFormValidator.clearTypeError();
