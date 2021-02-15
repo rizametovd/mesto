@@ -15,7 +15,7 @@
     <main class="content">
         <section class="profile">
             <a class="profile__avatar-container" href="#" target="_self">
-                <img class="profile__avatar" src="" alt="Аватар пользователя">
+                <img class="profile__avatar" src="<%=require('./images/404.jpg')%>" alt="Аватар пользователя">
             </a>
             <div class="profile__container">
                 <div class="profile__info">
@@ -98,9 +98,9 @@
                 type="button"></button>
             <h2 class="popup__title popup__title_add">Обновить аватар</h2>
             <label class="popup__label">
-                <input id="imglink__input" type="url" name="avatar" value="" placeholder="Ссылка на аватар"
+                <input id="avatar__input" type="url" name="avatar" value="" placeholder="Ссылка на аватар"
                     class="popup__field popup__field_add popup__image-link popup__input" required>
-                <span id="imglink__input-error"></span>
+                <span id="avatar__input-error"></span>
             </label>
             <button class="popup__submit-button button popup__button" type="submit"
                 aria-label="Создать карточку">Сохранить</button>
