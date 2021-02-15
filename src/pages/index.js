@@ -3,8 +3,10 @@ import Section from '../components/Section.js';
 import Card from '../components/Card.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import PopupDeleteCard from '../components/PopupDeleteCard.js';
 import UserInfo from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
+import Api from '../components/Api.js';
 import {
     editButton,
     addButton,
@@ -12,50 +14,151 @@ import {
     popupAboutField,
     editForm,
     addForm,
-    cardList,
+    cardContainer,
     validationConfig,
-    initialCards
+    name,
+    about,
+    avatar,
+    avatarButton,
+    avatarForm
 } from '../utils/constants.js';
 
+const api = new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-20/',
+    headers: {
+        authorization: '31d51008-4859-4d5b-b87f-d3d5e1b6e481',
+        'Content-Type': 'application/json'
+    }
+});
 
-const userInfo = new UserInfo({ name: '.profile__name', about: '.profile__about' });
+
+let userId = null;
 
 
-const imagePopup = new PopupWithImage('.popup-img');
-imagePopup.setEventListeners();
+api.getUserInfo()
+    .then(userInfo => {
+        userId = userInfo._id;
+        name.textContent = userInfo.name;
+        about.textContent = userInfo.about;
+        avatar.src = userInfo.avatar;
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
+
+const userInfo = new UserInfo({
+    name: name,
+    about: about
+});
+
+
+const updateAvatar = new PopupWithForm('.popup-update-avatar', (formData) => {
+    updateAvatar.renderLoading(true)
+    api.updateAvatar(formData)
+        .then(formData => {
+            avatar.src = formData.avatar;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        .finally(() => {
+            updateAvatar.renderLoading(false);
+        })
+})
+updateAvatar.setEventListeners();
+
+
+avatarButton.addEventListener('click', () => {
+    updateAvatar.open();
+    avatarFormValidator.clearSpanError();
+    avatarFormValidator.clearTypeError();
+    avatarFormValidator.setButtonState(false);
+})
 
 
 const editPopup = new PopupWithForm('.popup-edit', (formData) => {
+    editPopup.renderLoading(true);
+    api.updateUserInfo(formData)
+        .then(formData => {
+            return formData;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        .finally(() => {
+            editPopup.renderLoading(false);
+        })
     userInfo.setUserInfo(formData);
 });
 editPopup.setEventListeners();
 
 
-const addPopup = new PopupWithForm('.popup-add', (item) => {
-    cardsList.addOneItem(createCard(item, '.card__template', (item) => {
-        imagePopup.open(item);
-    }));
+const cardsSection = new Section({
+    renderer: (item) => {
+        cardsSection.addItem(createCard(item));
+    },
+},
+    cardContainer
+);
+
+
+api.getInitialCards()
+    .then(cards => {
+        cardsSection.renderItems(cards);
+    }
+    )
+    .catch(err => {
+        console.log(err);
+    });
+
+
+const addPopup = new PopupWithForm('.popup-add', (formData) => {
+    addPopup.renderLoading(true);
+    api.createCard(formData)
+        .then(formData => {
+            cardsSection.addOneItem(createCard(formData));
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        .finally(() => {
+            addPopup.renderLoading(false);
+        })
 });
 addPopup.setEventListeners();
 
 
-const cardsList = new Section({
-    items: initialCards,
-    renderer: (item) => {
-        cardsList.addItem(createCard(item, '.card__template', (item) => {
-            imagePopup.open(item);
-        }));
-    },
-},
-    cardList
-);
-cardsList.renderItems();
-
-function createCard(item, cardSelector, openImagePopup) {
-    const cardInstance = new Card(item, cardSelector, openImagePopup);
+function createCard(cardData) {
+    const cardInstance = new Card(
+        { ...cardData, userId },
+        '.card__template',
+        (formData) => {
+            imagePopup.open(formData);
+        },
+        (cardData) => {
+            popupDeleteCard.open(cardData);
+        },
+        api);
     const card = cardInstance.generateCard();
     return card;
 }
+
+
+const popupDeleteCard = new PopupDeleteCard('.popup-delete', (cardData) => {
+    api.removeCard(cardData.cardId)
+        .then(() => {
+            cardData.card.remove();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+popupDeleteCard.setEventListeners();
+
+
+const imagePopup = new PopupWithImage('.popup-img');
+imagePopup.setEventListeners();
 
 
 addButton.addEventListener('click', () => {
@@ -80,5 +183,10 @@ editButton.addEventListener('click', () => {
 const addFormValidator = new FormValidator(validationConfig, addForm);
 addFormValidator.enableValidation();
 
+
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
+
+
+const avatarFormValidator = new FormValidator(validationConfig, avatarForm);
+avatarFormValidator.enableValidation();

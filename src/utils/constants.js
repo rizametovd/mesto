@@ -1,10 +1,15 @@
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
-export const popupNameField = document.querySelector('[name="username"]');
+export const popupNameField = document.querySelector('[name="name"]');
 export const popupAboutField = document.querySelector('[name="about"]');
 export const editForm = document.querySelector('[name="editform"]');
 export const addForm = document.querySelector('[name="addform"]');
-export const cardList = document.querySelector('.cards__list');
+export const cardContainer = document.querySelector('.cards__list');
+export const avatarButton = document.querySelector('.profile__avatar-container');
+export const avatarForm = document.querySelector('[name="update-avatar-form"]');
+export const name = document.querySelector('.profile__name');
+export const about = document.querySelector('.profile__about');
+export const avatar = document.querySelector('.profile__avatar');
 export const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',

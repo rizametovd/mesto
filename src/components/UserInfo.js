@@ -1,7 +1,7 @@
 export default class UserInfo {
     constructor({ name, about }) {
-        this._name = document.querySelector(name);
-        this._about = document.querySelector(about);
+        this._name = name;
+        this._about = about;
     }
 
     getUserInfo() {
@@ -12,7 +12,7 @@ export default class UserInfo {
     }
 
     setUserInfo(formData) {
-        this._name.textContent = formData.username;
+        this._name.textContent = formData.name;
         this._about.textContent = formData.about;
     }
 }
