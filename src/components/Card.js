@@ -39,8 +39,8 @@ export default class Card {
 
     _likeCard() {
         this._api.likeCard(this._cardId)
-            .then(() => {
-                this._likes = this._likes + 1;
+            .then((res) => {
+                this._likes = res.likes.length;
                 this._cardLikes.textContent = this._likes;
             })
             .catch(err => {
@@ -50,8 +50,8 @@ export default class Card {
 
     _unlikeCard() {
         this._api.unLikeCard(this._cardId)
-            .then(() => {
-                this._likes = this._likes - 1;
+            .then((res) => {
+                this._likes = res.likes.length;
                 this._cardLikes.textContent = this._likes;
             })
             .catch(err => {

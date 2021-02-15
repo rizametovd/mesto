@@ -35,29 +35,28 @@ const api = new Api({
 let userId = null;
 
 
+const userInfo = new UserInfo({
+    name: name,
+    about: about,
+    avatar: avatar
+})
+
+
 api.getUserInfo()
-    .then(userInfo => {
-        userId = userInfo._id;
-        name.textContent = userInfo.name;
-        about.textContent = userInfo.about;
-        avatar.src = userInfo.avatar;
+    .then(userData => {
+        userId = userData._id;
+        userInfo.setUserInfo(userData);
     })
     .catch(err => {
         console.log(err);
     })
 
 
-const userInfo = new UserInfo({
-    name: name,
-    about: about
-});
-
-
 const updateAvatar = new PopupWithForm('.popup-update-avatar', (formData) => {
     updateAvatar.renderLoading(true)
     api.updateAvatar(formData)
         .then(formData => {
-            avatar.src = formData.avatar;
+            userInfo.setUserInfo(formData);
         })
         .catch(err => {
             console.log(err);
@@ -81,7 +80,7 @@ const editPopup = new PopupWithForm('.popup-edit', (formData) => {
     editPopup.renderLoading(true);
     api.updateUserInfo(formData)
         .then(formData => {
-            return formData;
+            userInfo.setUserInfo(formData);
         })
         .catch(err => {
             console.log(err);
@@ -89,7 +88,6 @@ const editPopup = new PopupWithForm('.popup-edit', (formData) => {
         .finally(() => {
             editPopup.renderLoading(false);
         })
-    userInfo.setUserInfo(formData);
 });
 editPopup.setEventListeners();
 

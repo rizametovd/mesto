@@ -35,7 +35,8 @@ export default class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name: formData.name,
-                about: formData.about
+                about: formData.about,
+                avatar: formData.avatar
             })
         })
             .then(res => {
