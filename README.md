@@ -1,4 +1,4 @@
-# Проект: Mesto
+# Mesto
 
 ![HTML5](https://img.shields.io/badge/-HTML5-307bca?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/-CSS3-307bca?logo=css3&logoColor=white)
