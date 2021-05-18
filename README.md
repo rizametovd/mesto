@@ -6,7 +6,8 @@
 ![Webpack](https://img.shields.io/badge/-Webpack-307bca?logo=webpack&logoColor=white)
 
 ## Описание
-SPA приложение на ванильном JavaScript. Аналог Инстаграма. Ссылка на gh-pages: https://rizametovd.github.io/mesto/ .
+SPA приложение на ванильном JavaScript. Аналог Инстаграма.</br>
+Ссылка на gh-pages: https://rizametovd.github.io/mesto/ .
 
 ## Превью
 ![Превью проекта](./public/preview.gif)
