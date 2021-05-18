@@ -7,6 +7,7 @@ export default class Card {
         this._likes = data.likes.length;
         this._usersId = data.owner._id;
         this._myId = data.userId;
+        console.log(this._myId)
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
         this._popupDelete = popupDelete;
@@ -41,6 +42,7 @@ export default class Card {
         this._api.likeCard(this._cardId)
             .then((res) => {
                 this._likes = res.likes.length;
+                console.log(this._cardLikes)
                 this._cardLikes.textContent = this._likes;
             })
             .catch(err => {

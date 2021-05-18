@@ -44,6 +44,7 @@ const userInfo = new UserInfo({
 
 api.getUserInfo()
     .then(userData => {
+        console.log(userData)
         userId = userData._id;
         userInfo.setUserInfo(userData);
     })

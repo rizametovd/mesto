@@ -1,24 +1,44 @@
-# Проект 9: Место
+# Проект: Mesto
 
-## Описание проекта
-1. Работа выполнена в соответствии с техническим заданием. Сайт адаптируется под разные разрешения экрана. Код написан на HTML, CSS и JavaScript.
-2. Структура проекта создана в соответствии с методологией БЭМ Nested.
-3. Ссылка на Gh-Pages: https://rizametovd.github.io/mesto/ 
+![HTML5](https://img.shields.io/badge/-HTML5-307bca?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-307bca?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-307bca?logo=javaScript&logoColor=white)
+![Webpack](https://img.shields.io/badge/-Webpack-307bca?logo=webpack&logoColor=white)
+
+## Описание
+SPA приложение на ванильном JavaScript. Аналог Инстаграма. Ссылка на gh-pages: https://rizametovd.github.io/mesto/ .
+
+## Превью
+![Превью проекта](./public/preview.gif)
+
+## Задача
+* Сделать адаптивную верстку
+* Организовать файловую структуру по БЭМ
+* Получать данные по API и рендерить их на странице
+* Написать логику: добавления/удаления карточек и лайков, редактирования профиля пользователя
+* Валидировать формы
+
+## Стек
+* HTML5
+* CSS (flexbox, позиционирование, Mobile first)
+* BEM
+* JavaScript
+* WebPack
+* ООП
+* Работа с формами
+* API
+
+## Установка
+Для запуска на локальной машине необходимо:</br>
+1. Установить npm зависимости:</br>
+```sh
+npm install
+```
+2. Запустить в режиме разработки:</br>
+```sh
+npm run dev
+```
+Если все прошло успешно, проект будет запущен на `http://localhost:3000`
 
 
-## Changelog Спринт 9
-1. Добавил отправку данных на сервер. Теперь все сохраняется после перезагрузки страницы.
 
-## Changelog Спринт 8
-1. Добавлены классы: Popup, PopupWithForm, PopupWithImage, Section, UserInfo.
-2. Созданы папки для констант, модулей.
-
-## Changelog Спринт 7
-1. Добавлено два класса: Card и FormValidator.
-
-## Changelog Спринт 6
-1. Добавлена валидация форм.
-2. Добавлены функии закрытия попапов при клике на оверлей и на esc.
-
-## Что дальше?
-Дальше 10 спринт и доработка этого проекта. Очевидно будет еще рефакторинг.
